@@ -8,7 +8,7 @@ function moveSlide(n){
 
 function showSlides(n) {
     let i;
-    let slides = document,getElementsByClassName("carousel-item")
+    let slides = document.getElementsByClassName("carousel-item")
     if (n > slides.length) {
         slideIndex = 1
     }
