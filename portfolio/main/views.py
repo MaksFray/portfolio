@@ -1,17 +1,24 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import DetailView, ListView
+
 from .models import Project, Tag
 
-def home(request):
-    projects = Project.objects.all()
-    tags = Tag.objects.all()
-    return render(request, "home.html", {
-        "projects": projects,
-        "tags": tags,
-    })
+
+class ProjectList(ListView):
+    template_name = "home.html"
+    model = Project
+    context_object_name = 'projects'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tags'] = Tag.objects.all()
+        return context
+
 
 def contact(request):
     return render(request, "contact.html")
 
-def project(request, id):
-    project = get_object_or_404(Project, pk=id)
-    return render(request, "project.html", {"project": project})
+
+class ShowProject(DetailView):
+    template_name = 'project.html'
+    model = Project
