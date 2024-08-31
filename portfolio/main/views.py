@@ -22,3 +22,7 @@ def contact(request):
 class ShowProject(DetailView):
     template_name = 'project.html'
     model = Project
+
+class TagList(DetailView):
+    template_name = "tag.html"
+    model = Tag
