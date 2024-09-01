@@ -1,14 +1,11 @@
-.carousel-item {
-  display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-  background-color: black; /* Fill the background with black */
-  width: 100%; /* Full width of the carousel */
-  height: 400px; /* Fixed height, adjust as needed */
+.img__container {
+    display: flex;
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
 }
-
-.carousel-item img {
-  max-height: 100%; /* Limit the image height to fit within the container */
-  max-width: 100%; /* Limit the image width to fit within the container */
-  object-fit: contain; /* Maintain aspect ratio and fit the image within the bounds */
-}
+.img__container img {
+        margin: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
