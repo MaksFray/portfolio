@@ -26,3 +26,9 @@ class ShowProject(DetailView):
 class TagList(DetailView):
     template_name = "tag.html"
     model = Tag
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context["projects"] = Project.objects.all().filter(tags = self.get_object())
+        return context
+
